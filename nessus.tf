@@ -121,12 +121,12 @@ resource "azurerm_marketplace_agreement" "nessus" {
 
 resource "azurerm_virtual_machine" "nessus" {
 
-  name                         = "nessus-vm"
-  location                     = azurerm_resource_group.rg.location
-  resource_group_name          = azurerm_resource_group.rg.name
-  network_interface_ids        = [azurerm_network_interface.nessus-pub.id]
-  primary_network_interface_id = azurerm_network_interface.nessus-pub.id
-  vm_size                      = "Standard_B2ms"
+  name                             = "nessus-vm"
+  location                         = azurerm_resource_group.rg.location
+  resource_group_name              = azurerm_resource_group.rg.name
+  network_interface_ids            = [azurerm_network_interface.nessus-pub.id]
+  primary_network_interface_id     = azurerm_network_interface.nessus-pub.id
+  vm_size                          = "Standard_B2ms"
   delete_data_disks_on_termination = true
   storage_image_reference {
     publisher = "tenable"
@@ -167,5 +167,5 @@ resource "azurerm_virtual_machine" "nessus" {
 output "public_ip" {
 
   value = azurerm_public_ip.nessus.ip_address
-  
+
 }
